@@ -23,16 +23,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .roles("ADMIN");
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("").hasRole("USER")
-                .antMatchers("").hasRole("ADMIN")
-                .antMatchers("").permitAll()
-                .and()
-                .httpBasic()
-                .and()
-                .logout();
-    }
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers("").hasRole("USER")
+//                .antMatchers("").hasRole("ADMIN")
+//                .antMatchers("").permitAll()
+//                .and()
+//                .httpBasic()
+//                .and()
+//                .logout();
+//    }
 }
