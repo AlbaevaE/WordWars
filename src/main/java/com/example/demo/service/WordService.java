@@ -9,4 +9,5 @@ public interface WordService {
     List<Word>getAllWord();
     Word getWordById(Long id);
     void deleteWord(Long id);
+
 }
