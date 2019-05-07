@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 //@ManyToMany(
 //join Tables Answers and User
@@ -20,19 +21,19 @@ public class Word {
     private String word;
     @ManyToMany
     @JoinColumn(name = "category_id")
-    private Category category;
+    private List<Category> category;
 
 
     public static class WordBuild {
         private Long id;
         private String word;
-        private Category category;
+        private List<Category> category;
 
         public WordBuild(String word) {
             this.word = word;
         }
 
-        public WordBuild withCategory(Category category){
+        public WordBuild withCategory(List<Category> category){
             this.category = category;
             return this;
         }
@@ -40,7 +41,7 @@ public class Word {
         public Word build() {
             Word word = new Word();
             word.word = this.word;
-            word.category = this.category;
+            word.category = category;
             return word;
         }
     }
