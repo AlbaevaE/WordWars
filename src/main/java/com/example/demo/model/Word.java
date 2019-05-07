@@ -19,21 +19,21 @@ public class Word {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String word;
-    @ManyToMany
+    @OneToOne
     @JoinColumn(name = "category_id")
-    private List<Category> category;
+    private Category category;
 
 
     public static class WordBuild {
         private Long id;
         private String word;
-        private List<Category> category;
+        private Category category;
 
         public WordBuild(String word) {
             this.word = word;
         }
 
-        public WordBuild withCategory(List<Category> category){
+        public WordBuild withCategory(Category category){
             this.category = category;
             return this;
         }
