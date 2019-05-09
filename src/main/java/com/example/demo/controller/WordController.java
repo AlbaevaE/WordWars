@@ -31,7 +31,6 @@ public class WordController {
         return this.wordService.getWordsByLevel(level);
     }
 
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Word addWord(@RequestBody Word w){
