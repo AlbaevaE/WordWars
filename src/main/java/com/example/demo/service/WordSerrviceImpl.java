@@ -41,8 +41,15 @@ public class WordSerrviceImpl implements WordService {
     }
 
     @Override
-    public List<Word> getWordsByLevel(Level level) {
-        return wordRepository.findAll().stream().filter(x->x.getCategory().getLevel().equals(level)).collect(Collectors.toList());
+    public List<Word> getWordsByLevel(Integer level) {
+        switch (level){
+            case (1): return wordRepository.findAll().stream().filter(x->x.getCategory().getLevel().equals(Level.ELEMENTARY)).collect(Collectors.toList());
+            case (2): return wordRepository.findAll().stream().filter(x->x.getCategory().getLevel().equals(Level.PREiNTERMEDIATE)).collect(Collectors.toList());
+            case (3): return wordRepository.findAll().stream().filter(x->x.getCategory().getLevel().equals(Level.INTERMEDIATE)).collect(Collectors.toList());
+            case (4): return wordRepository.findAll().stream().filter(x->x.getCategory().getLevel().equals(Level.UPPERiNTERMEDIATE)).collect(Collectors.toList());
+            case (5): return wordRepository.findAll().stream().filter(x->x.getCategory().getLevel().equals(Level.ADVANCE)).collect(Collectors.toList());
+            default: return null;
+        }
     }
 
 }

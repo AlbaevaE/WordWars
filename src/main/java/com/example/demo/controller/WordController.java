@@ -21,12 +21,22 @@ public class WordController {
         return this.wordService.getWordById(id);
     }
 
+    @GetMapping("/byCategory/{categoryId}")
+    public List<Word> getByCategory(@PathVariable Long categoryId){
+        return this.wordService.getWordsByCategory(categoryId);
+    }
+
+    @GetMapping("/byLevel/{level}")
+    public List<Word> getByLevel(@PathVariable Integer level){
+        return this.wordService.getWordsByLevel(level);
+    }
+
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Word addWord(@RequestBody Word w){
         return this.wordService.addNewWord(w);
     }
-
     @GetMapping
     public List<Word>getAllWords(){
         return this.wordService.getAllWord();
@@ -35,6 +45,6 @@ public class WordController {
     @DeleteMapping("/{id}")
     public void deleteWord(@PathVariable Long id){
         this.wordService.deleteWord(id);
-
     }
+
 }

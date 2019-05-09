@@ -11,5 +11,5 @@ public interface WordService {
     Word getWordById(Long id);
     void deleteWord(Long id);
     List<Word> getWordsByCategory(Long categoryId);
-    List<Word> getWordsByLevel(Level level);
+    List<Word> getWordsByLevel(Integer level);
 }
