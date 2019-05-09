@@ -22,7 +22,7 @@ public class Word {
     @OneToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
+    private Word(){}
 
     public static class WordBuild {
         private Long id;

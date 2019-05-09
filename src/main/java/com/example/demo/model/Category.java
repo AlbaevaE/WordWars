@@ -15,11 +15,11 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     String name;
-
     @Enumerated(EnumType.STRING)
     Level level;
+
+    private Category(){}
 
     public static class Builder {
         private Long id;
