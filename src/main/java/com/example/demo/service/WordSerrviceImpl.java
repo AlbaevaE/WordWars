@@ -1,11 +1,13 @@
 package com.example.demo.service;
 
+import com.example.demo.enums.Level;
 import com.example.demo.model.Word;
 import com.example.demo.repository.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class WordSerrviceImpl implements WordService {
@@ -32,4 +34,15 @@ public class WordSerrviceImpl implements WordService {
     public void deleteWord(Long id) {
         this.wordRepository.deleteById(id);
     }
+
+    @Override
+    public List<Word> getWordsByCategory(Long categoryId) {
+        return wordRepository.findAll().stream().filter(x->x.getCategory().getId().equals(categoryId)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Word> getWordsByLevel(Level level) {
+        return wordRepository.findAll().stream().filter(x->x.getCategory().getLevel().equals(level)).collect(Collectors.toList());
+    }
+
 }
